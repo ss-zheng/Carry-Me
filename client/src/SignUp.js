@@ -35,7 +35,7 @@ export default class SignUp extends React.Component{
             first_name: 'daniel',
             last_name: 'zheng',
             user_email: '1234@gmail.com',
-            user_pass: '2012Zheng',
+            user_pass: 'oasdfjaasdofjoaj',
             user_level: 1
         }
         var obj = new FormData();
