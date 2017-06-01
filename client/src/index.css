@@ -1,0 +1,188 @@
+body {
+    font-family: -apple-system,BlinkMacSystemFont,SegoeUI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, HelveticaNeue, sans-serif;
+}
+
+/* ul { */
+/*     padding:0; */
+/* } */
+
+/* li { */
+/*     list-style-type: none; */
+/* } */
+
+/* a { */
+/*     text-decoration: none; */
+/*     color: #d0021b; */
+/* } */
+
+/* .container { */
+/*     max-width:1200px; */
+/*     margin: 0 auto; */
+/* } */
+
+/* .container { */
+/*     margin: 0; */
+/*     padding: 0; */
+/* } */
+
+.top-nav {
+    background-color: rgba(0,0,0,0.8);
+    border: none;
+    margin-top: 8px;
+}
+
+.row {
+    display: flex;
+    justify-content:space-around;
+}
+
+.slide-text {
+    z-index: 100;
+    background-color: rgba(200,200,200,0.7);
+    border-radius: 3px;
+    padding: 5px 10px;
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    left: 150px;
+    top: 350px;
+}
+
+.frame {
+    width: 100%;
+    height: 600px;
+    background-attachment: fixed;
+    background-position: top center;
+    background-size: cover;
+    position: relative;
+}
+
+.slide {
+    height: 600px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
+/* .column { */
+/*     display: flex; */
+/*     flex-direction: column; */
+/*     width:500px; */
+/*     align-items: center; */
+/* } */
+
+/* .column input { */
+/*     border-radius: 3px; */
+/*     margin: 10px 0; */
+/*     padding: 5px; */
+/*     border: 1px solid rgba(0,0,0,0.43); */
+/*     font-size: 16px; */
+/*     width: 80%; */
+/* } */
+
+/* .colume label{ */
+/*     text-align:center; */
+/*     font-size: 30px; */
+/*     font-weight: 200; */
+/* } */
+
+/* .header { */
+/*     text-align: center; */
+/*     font-size: 30px; */
+/*     font-weight:200; */
+/* } */
+
+/* .languages { */
+/*     display: flex; */
+/*     justify-content: center; */
+/* } */
+
+/* .languages li { */
+/*     margin: 10px; */
+/*     font-weight:bold; */
+/*     cursor: pointer; */
+/* } */
+
+/* .popular-list { */
+/*     display:flex; */
+/*     flex-wrap: wrap; */
+/*     justify-content: space-around; */
+/* } */
+
+/* .popular-item { */
+/*     margin:20px; */
+/*     text-align: center; */
+/* } */
+
+/* .space-list-items { */
+/*     margin-bottom: 7ps; */
+/* } */
+
+/* .avatar { */
+/*     width: 150px; */
+/*     border-radius: 50%; */
+/* } */
+
+/* .populer-rank{ */
+/*     font-size: 20px; */
+/*     margin:10px; */
+/* } */
+
+/* .nav { */
+/*     display:flex; */
+/* } */
+
+/* .active { */
+/*     font-weight: bold; */
+/* } */
+
+/* .reset { */
+/*     border: none; */
+/*     background: transparent; */
+/*     color: #d0021b; */
+/*     display: block; */
+/*     width: 100%; */
+/*     text-align: center; */
+/* } */
+
+/* .reset:hover { */
+/*     cursor: pointer; */
+/* } */
+
+/* .nav li { */
+/*     margin-right: 15px; */
+/* } */
+
+/* .home-container { */
+/*     display:flex; */
+/*     flex-direction: column; */
+/*     align-items: center; */
+/* } */
+
+/* .button { */
+/*     color: #e6e6e6; */
+/*     background: #0a0a0a; */
+/*     border:none; */
+/*     font-size: 16px; */
+/*     border-radius: 3px; */
+/*     width: 200px; */
+/*     text-align: center; */
+/*     display: block; */
+/*     padding: 7px 0; */
+/*     margin: 10px auto; */
+/* } */
+
+/* .button:hover:enabled{ */
+/*     background: */
+/*         linear-gradient(#1a1a1a, #0a0a0a); */
+/*     color: #fff; */
+/*     text-decoration: none; */
+/* } */
+
+/* .button:active { */
+/*     transform: translateY(1px); */
+/* } */
+
+
