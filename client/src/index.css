@@ -31,9 +31,27 @@ body {
     margin-top: 8px;
 }
 
-.row {
-    display: flex;
-    justify-content:space-around;
+/* .row { */
+/*     display: flex; */
+/*     justify-content:space-around; */
+/* } */
+
+.name-control {
+    width:100%;
+}
+
+.user-name {
+    display: flex;    
+    list-style-type: none;
+    padding: 0;
+}
+
+.user-name li {
+    width: 48%;
+}
+
+.user-name li:first-child {
+    margin-right:4%;
 }
 
 .slide-text {

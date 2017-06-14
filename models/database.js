@@ -29,7 +29,8 @@ module.exports = {
         }
         
         console.log(data);
-        console.log(req);
+        console.log(req.header);
+        console.log(req.body);
 
         //get a postgres client from the connection pool
         pg.connect(connectionString, (err,client,done) => {

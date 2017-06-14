@@ -1,12 +1,15 @@
 const bodyParser = require('body-parser');
+// const cors = require('cors');
 
 const express = require('express');
 const db = require('./models/database');
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// app.use(cors());
 
 app.set('port', (process.env.PORT || 3001));
 
@@ -14,6 +17,15 @@ app.set('port', (process.env.PORT || 3001));
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 }
+
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header('Access-Control-Allow-Method', 'Get, POST, OPTIONS, PUT, PATCH, DELETE');
+    // res.setHeader('Access-Control-Allow-Headers', 'X-Requested-with, content-type');
+    // res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
 
 //for users
 app.post('/api/carry_me/users', db.createUser);
@@ -28,7 +40,6 @@ app.delete('/api/carry_me/users/:user_id', db.deleteUser);
 // app.get('/api/carry_me/posts/:user_email', db.readPost);
 // app.put('/api/carry_me/posts/:user_id', db.updatePost);
 // app.delete('/api/carry_me/posts/:user_id', db.deletePost);
-
 
 app.listen(app.get('port'), () => {
     console.log(`Find the server at: http://localhost:${app.get('port')}/`); 

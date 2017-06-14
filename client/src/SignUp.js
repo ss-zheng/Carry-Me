@@ -13,35 +13,31 @@ import {FieldGroup} from './Form';
 export default class SignUp extends React.Component{
     constructor(props) {
         super(props);
-        
-        this.state = {
-            showModal: false
-        }
-        
-        this.close = this.close.bind(this);
         this.open = this.open.bind(this);
+        this.close = this.close.bind(this);
+        this.switch = this.switch.bind(this);
+    }
+    
+    open(){
+        this.props.togglefunc(false, true);
     }
 
-    close() {
-        this.setState({showModal: false});
+    close(){
+        this.props.togglefunc(false, false);
+    }
+    
+    switch(){
+        this.props.togglefunc(true, false);
     }
 
-    open() {
-        this.setState({showModal: true});
-    }
-
-    createTest(){
-        var data = {
-            first_name: 'daniel',
-            last_name: 'zheng',
-            user_email: '1234@gmail.com',
-            user_pass: 'oasdfjaasdofjoaj',
-            user_level: 1
-        }
-        var obj = new FormData();
-        obj.append("json", JSON.stringify(data));
-
-        createUser(data);
+    handleSubmit(e) {
+        e.preventDefault(); 
+        var theForm = 
+            document.getElementById("sign-up");
+        var user = new FormData(theForm);
+        console.log(theForm);
+        console.log(user);
+        // createUser(user);
     }
 
 	render() {
@@ -56,48 +52,32 @@ export default class SignUp extends React.Component{
 	      </Tooltip>
 	    );
 
-        var login= <a>Have an account</a>
-	
 	    return (
 	      <div>
             <div onClick={this.open}>{this.props.text}</div>
-	        <Button type="button" onClick={this.createTest} >test</Button>
 	
-	        <Modal show={this.state.showModal} onHide={this.close}>
+	        <Modal show={this.props.visible} onHide={this.close}>
 	          <Modal.Header closeButton>
 	            <Modal.Title>Sign Up</Modal.Title>
 	          </Modal.Header>
-                <form method="post" onSubmit={createUser}>
-	                <Modal.Body>
-                        <FieldGroup
-                          id="formControlsEmail"
-                          type="email"
-                          label="Email address"
-                          placeholder="Enter email"
-                        />
-                        <FieldGroup
-                          id="formControlsText"
-                          type="text"
-                          label="First Name"
-                          placeholder="First Name"
-                        />
-                        <FieldGroup
-                          id="formControlsText"
-                          type="text"
-                          label="Last Name"
-                          placeholder="Last Name"
-                        />
-                        <FieldGroup
-                          id="formControlsPassword"
-                          label="Password"
-                          type="password"
-                        />
-                        <SignIn text={login} />
-	                </Modal.Body>
-	                <Modal.Footer>
+                <form method="post" action="http://localhost:3001/api/carry_me/users">
+                    <Modal.Body>
+                        <FieldGroup label="Email Address" content="user_email" placeholder="email address" type="email"/>
+                        <ul className="user-name">
+                            <li>
+                                <FieldGroup label="First Name" content="first_name" placeholder="first name" type="txt"/>
+                            </li>
+                            <li>
+                                <FieldGroup label="Last Name" content="last_name" placeholder="lastname" type="txt"/>
+                            </li>
+                        </ul>
+                        <FieldGroup label="Password" content="user_pass" placeholder="password" type="password"/>
+                        <a onClick={this.switch}>Have an account</a>
+                    </Modal.Body>
+                    <Modal.Footer>
 	                    <Button type="submit">Sign Up</Button>
 	                    <Button onClick={this.close}>Cancel</Button>
-	                </Modal.Footer>
+                    </Modal.Footer>
                 </form>
 	        </Modal>
 	      </div>

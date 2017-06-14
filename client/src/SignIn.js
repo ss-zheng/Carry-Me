@@ -5,7 +5,8 @@ import Button from 'react-bootstrap/lib/Button';
 import Modal from 'react-bootstrap/lib/Modal';
 import Tooltip from 'react-bootstrap/lib/Tooltip';
 import OverlayTrigger from 'react-bootstrap/lib/OverlayTrigger';
-import {FormInstance2} from './Form'
+import Checkbox from 'react-bootstrap/lib/Checkbox';
+import {FieldGroup} from './Form';
 
 export default class SignIn extends React.Component{
     constructor(props) {
@@ -17,14 +18,19 @@ export default class SignIn extends React.Component{
         
         this.close = this.close.bind(this);
         this.open = this.open.bind(this);
+        this.switch = this.switch.bind(this);
+    }
+    
+    open(){
+        this.props.togglefunc(true, false);
     }
 
-    close() {
-        this.setState({showModal: false});
+    close(){
+        this.props.togglefunc(false, false);
     }
-
-    open() {
-        this.setState({showModal: true});
+    
+    switch(){
+        this.props.togglefunc(false, true);
     }
 
 	render() {
@@ -43,12 +49,23 @@ export default class SignIn extends React.Component{
 	      <div>
             <div onClick={this.open}>{this.props.text}</div>
 	
-	        <Modal show={this.state.showModal} onHide={this.close}>
+	        <Modal show={this.props.visible} onHide={this.close}>
 	          <Modal.Header closeButton>
 	            <Modal.Title>Sign In</Modal.Title>
 	          </Modal.Header>
 	          <Modal.Body>
-                <FormInstance2 />
+                <form>
+                    <FieldGroup label="Email Address" content="user_email" placeholder="email address" type="email"/>
+                    <FieldGroup label="Password" content="user_pass" placeholder="password" type="password"/>
+
+                    <Checkbox>
+                         Remember Me
+                    </Checkbox>
+
+                    <a href=''>Forgot password?</a>
+                    
+                    <a onClick={this.switch}>Create an account</a>
+                </form>
 	          </Modal.Body>
 	          <Modal.Footer>
 	            <Button onClick={this.close}>Sign In</Button>
