@@ -1,24 +1,309 @@
+/* General css {{{ */
+body {
+    font-family: -apple-system,BlinkMacSystemFont,SegoeUI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, HelveticaNeue, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --nav-text-color: #d0021b;
+}
+
 .App {
-  text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  /* animation: App-logo-spin infinite 20s linear; */
+  height: 50px;
+  /* border: 1px solid black; */
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.icontainer {
+    width: 95%;
+    margin: 70px auto 0px auto;
 }
 
-.App-intro {
-  font-size: large;
+.irow {
+    display: flex;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+ul {
+	padding: 0;
+	margin: 0;
 }
+
+a {
+    text-decoration: none;
+    color: var(--nav-text-color);
+    margin: 0;
+    padding: 0;
+}
+
+button:focus {
+    outline: 0;
+}
+
+/* }}} */
+
+/* Nav css {{{ */
+.nav-container {
+    text-align: center;
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.2);
+    position: fixed; 
+    top: 0px;
+    z-index: 2;
+}
+
+.nav-right {
+    flex: 1;
+    height: 50px;
+    /* background-color: green; */
+}
+
+.nav-center {
+    flex:5;
+}
+
+.nav-left {
+    /* float: right; */
+    flex: 3;
+    /* display: inline; */
+    /* background-color: grey; */
+}
+
+.inav li {
+	display: inline;
+	list-style-type: none;
+	margin-right: 15px;
+}
+
+/* Drop down {{{ */
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 60px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index:1;
+    font-size: 13px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 6px 8px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    text-decoration: line-throught;
+}
+/* }}} */
+
+/* Modal {{{ */
+.modal {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(50, 50,50, 0.8);
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 500ms ease-in-out;
+}
+
+.modal-content {
+    text-align: left;
+    position: relative;
+    box-sizing: border-box;
+    width: 46%;
+    top: -16%;
+    margin: auto;
+    background-color: white;
+}
+
+.modal-decorate {
+    position: absolute;
+    flex:0;
+    transition: all 500ms;
+}
+
+
+#modal-decoration1 {
+    height: 90px;
+    top: -50px;
+    left: -50px;
+    transform: rotate(-20deg);
+    
+}
+#modal-decoration1:hover {
+    transform: rotate(10deg) scale(1.1,1.1);
+}
+
+#modal-decoration2 {
+    height: 70px;
+    top: 300px;
+    left: -100px;
+    transform: rotate(20deg) scale(1.1,1.1);
+}
+#modal-decoration2:hover {
+    transform: rotate(10deg) scale(1.1,1.1);
+}
+
+#modal-decoration3 {
+    height: 80px;
+    top: 80px;
+    left: 600px;
+    transform: rotate(-10deg);
+}
+#modal-decoration3:hover {
+    transform: rotate(-20deg) scale(1.1,1.1);
+}
+
+#modal-close {
+    height: 20px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.modal-body {
+    display: flex;
+}
+
+.body-right {
+    flex:1;
+    padding: 30px 0px 30px 33px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.body-left {
+    flex:1;
+}
+
+.modal-entry {
+    flex:1;
+}
+
+.modal-entry input {
+    display: block;
+    border: none;
+    border-bottom: 1px solid #c2c2c2;
+    font-size: 16px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 7px;
+    outline: none;
+    margin-top: 20px;
+}
+
+.modal-footer {
+    margin: 30px;
+}
+
+.modal-footer button {
+    padding: 10px;
+    box-sizing: border-box;
+    width: 50%;
+    background-color: Lavender;
+    font-size: 16px;
+    color: CadetBlue;
+    border: none;
+    border-radius: 1px;
+}
+.modal-footer button:hover {
+    box-shadow: 1px 0px 1px #ddd;
+}
+
+.is-open {
+    opacity:1;
+    pointer-events: auto;
+}
+
+/*}}}*/
+/* }}} */
+
+/* Home css {{{ */
+.home-container {
+    background-color: green;
+    height: 100px;
+    position: relative;
+    z-index: 0;
+}
+/* }}} */
+
+/* CarryMe css {{{ */
+/* }}} */
+
+/* ICarry css {{{ */
+/* }}} */
+
+/* Footage css {{{*/
+.foot-container {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid grey;
+    text-align: center;
+}
+
+.foot-colum {
+    flex: 1;
+    color: grey;
+}
+
+.foot-colum ul {
+    list-style-type: none;
+}
+
+.foot-colum li {
+    display: inline;
+    margin-left: 20px;
+}
+.foot-colum img {
+    height: 30px;
+}
+.foot-colum li img {
+    height: 20px;
+}
+/*}}}*/
+
+
+
+
+/* .App-header { */
+/*   background-color: #222; */
+/*   height: 150px; */
+/*   padding: 20px; */
+/*   color: white; */
+/* } */
+
+/* .App-intro { */
+/*   font-size: large; */
+/* } */
+
+/* @keyframes App-logo-spin { */
+/*   from { transform: rotate(0deg); } */
+/*   to { transform: rotate(360deg); } */
+/* } */
