@@ -24,11 +24,6 @@ app.use(function(req, res, next) {
 
 // create user {{{
 function createUser(req,res){
-    try{
-    if (req.body.length == 0) {
-        throw err;
-    }
-    console.log("in");
     var date = new Date();
     var user = {
         user_name: req.body.user_name, 
@@ -40,19 +35,19 @@ function createUser(req,res){
         user_posts: []
     }
     MongoClient.connect(url,function(err, db) {
-        if (err) throw err;
-        console.log("created");
-        db.collection('users').insertOne(user, function(err, res) {
-            if (err) throw err;
-            console.log(user.user_name, " created at ", user.user_date);
-            db.close();
-        });
+        if (err) {
+            res.send(500, err);
+        } else {
+            console.log("created");
+            db.collection('users').insertOne(user, function(err, res) {
+                // how to handle error here
+                if (err) throw err;
+                console.log(user.user_name, " created at ", user.user_date);
+                db.close();
+            });
+        }
     });
     res.json(user);
-    }
-    catch(e) {
-        res.send("body empty");
-    }
 }
 //}}}
 

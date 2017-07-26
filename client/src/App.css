@@ -220,7 +220,12 @@ button:focus {
 }
 
 .modal-footer {
-    margin: 30px;
+    margin: 0px 30px 30px 30px;
+}
+
+.modal-footer .errinfo{
+    color: red;
+    margin-buttom:10px;
 }
 
 .modal-footer button {
